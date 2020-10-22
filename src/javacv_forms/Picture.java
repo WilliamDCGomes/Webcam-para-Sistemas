@@ -35,15 +35,15 @@ public class Picture extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        buttonTakePicture = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/takePicture.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonTakePicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/takePicture.png"))); // NOI18N
+        buttonTakePicture.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonTakePictureActionPerformed(evt);
             }
         });
 
@@ -51,17 +51,17 @@ public class Picture extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(buttonTakePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(buttonTakePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setSize(new java.awt.Dimension(83, 80));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonTakePictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTakePictureActionPerformed
         OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(0);
         try{
             grabber.start();
@@ -78,7 +78,7 @@ public class Picture extends javax.swing.JFrame {
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "ERRO: " + e);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonTakePictureActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,6 +116,6 @@ public class Picture extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton buttonTakePicture;
     // End of variables declaration//GEN-END:variables
 }
