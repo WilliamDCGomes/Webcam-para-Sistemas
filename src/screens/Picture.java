@@ -88,7 +88,7 @@ public class Picture extends javax.swing.JFrame {
             if(img!=null){
                 String userDir = System.getProperty("user.home");
                 String[] vect = getDate.dateOfSystem().split("/");
-                String dir = vect[0] + vect[1] + vect[2] + getHour.informHour();
+                String dir = ";CAPTURE;" + vect[0] + vect[1] + vect[2] + getHour.informHour();
                 adress = userDir +"\\Desktop\\" + dir +".png";
                 add();
                 cvSaveImage(adress, img);
