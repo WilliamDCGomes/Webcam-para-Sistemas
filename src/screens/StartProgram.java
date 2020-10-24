@@ -65,11 +65,13 @@ public class StartProgram extends javax.swing.JFrame {
                     opencv_highgui.cvSetCaptureProperty(capture, opencv_highgui.CV_CAP_PROP_FRAME_WIDTH, 480);
                     opencv_core.IplImage grabbedImage = opencv_highgui.cvQueryFrame(capture);
                     CanvasFrame frame = new CanvasFrame("Webcam");
+                    frame.setDefaultCloseOperation(3);
                     String[] vect = screenUserSize.sizeOfScreen().split(";");
                     int x = Integer.parseInt(vect[0])/4;
                     int y = Integer.parseInt(vect[1])/8;
                     frame.setLocation(x, y);
                     getPicture.setLocation(x+5, y+515);
+                    getPicture.frame = frame;
                     getPicture.setVisible(true);
                     while(frame.isVisible() && (grabbedImage = opencv_highgui.cvQueryFrame(capture))!=null){
                         frame.showImage(grabbedImage);

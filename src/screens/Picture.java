@@ -5,6 +5,7 @@
  */
 package screens;
 
+import com.googlecode.javacv.CanvasFrame;
 import com.googlecode.javacv.OpenCVFrameGrabber;
 import com.googlecode.javacv.cpp.opencv_core;
 import static com.googlecode.javacv.cpp.opencv_highgui.cvSaveImage;
@@ -15,6 +16,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import java.awt.Frame;
+import static java.awt.Frame.getFrames;
 
 /**
  *
@@ -27,6 +30,7 @@ public class Picture extends javax.swing.JFrame {
     PreparedStatement pst = null;
     ResultSet rs = null;
     String adress;
+    public CanvasFrame frame;
     /**
      * Creates new form Picture
      */
@@ -58,6 +62,14 @@ public class Picture extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+                formWindowLostFocus(evt);
+            }
+        });
 
         buttonTakePicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/takePicture.png"))); // NOI18N
         buttonTakePicture.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +111,18 @@ public class Picture extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ERRO: " + e);
         }
     }//GEN-LAST:event_buttonTakePictureActionPerformed
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        if(!frame.isVisible()){
+            this.dispose();
+        }
+    }//GEN-LAST:event_formWindowGainedFocus
+
+    private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
+        if(!frame.isVisible()){
+            this.dispose();
+        }
+    }//GEN-LAST:event_formWindowLostFocus
 
     /**
      * @param args the command line arguments
